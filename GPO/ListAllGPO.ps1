@@ -1,7 +1,6 @@
 # List All GPOs
 Get-GPO -All `
-  | Select-Object DisplayName,Id,Description,GpoStatus,DomainName,WmiFilter `
-  | Ft -wrap
+  | Select-Object DisplayName,Id,Description,GpoStatus,DomainName,WmiFilter
 
 # Export to CSV
 Get-GPO -All `
