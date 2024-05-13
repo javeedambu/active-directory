@@ -1,7 +1,7 @@
 # List all OUs and their associated GPOs within the AD Forest
 
 # Initialise variable
-$ allOUGPOs = @()
+$allOUGPOs = @()
 
 # List all Domains in the Forest
 $allDomains = (Get-ADForest).domains
