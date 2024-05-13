@@ -1,5 +1,5 @@
 
-# List all OUs
+# List all OUs in the current domain
 $allOUs = Get-ADOrganizationalUnit -Filter *
 
 # List all linked GPOs on each OU
