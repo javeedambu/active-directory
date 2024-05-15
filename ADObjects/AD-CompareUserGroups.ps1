@@ -18,5 +18,9 @@ Compare-Object -ReferenceObject $user1Groups -DifferenceObject $user2Groups -Inc
                 $user2samAccount
             }
         }
+    },
+    @{n="GroupDescription";e={
+            (Get-ADGroup -Identity $_.InputObject -Properties Description).Description
+        }
     }
 
