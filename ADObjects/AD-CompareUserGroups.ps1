@@ -10,9 +10,9 @@ $user2Groups = (Get-ADPrincipalGroupMembership -Identity (Get-ADUser -Identity $
 Compare-Object -ReferenceObject $user1Groups -DifferenceObject $user2Groups -IncludeEqual | Select-Object `
     @{n="ADGroupname";e={$_.InputObject}}, 
     @{n="ComparedMembers";e={
-            If ($_.SlideIndicator -eq "==") {
+            If ($_.SideIndicator -eq "==") {
                 "$($user1samAccount), $($user2samAccount)"
-            } ElseIf ($_.SlideIndicator -eq "<=") {
+            } ElseIf ($_.SideIndicator -eq "<=") {
                 $user1samAccount
             } Else {
                 $user2samAccount
@@ -24,3 +24,8 @@ Compare-Object -ReferenceObject $user1Groups -DifferenceObject $user2Groups -Inc
         }
     }
 
+
+# List Groups and Description of a user
+Get-ADPrincipalGroupMembership -Identity (Get-ADUser -Identity $user1samAccount)n`
+    | Get-ADGroup -Properties Description `
+    | Select-Object Name, Description
