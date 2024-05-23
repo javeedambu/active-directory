@@ -26,6 +26,6 @@ Compare-Object -ReferenceObject $user1Groups -DifferenceObject $user2Groups -Inc
 
 
 # List Groups and Description of a user
-Get-ADPrincipalGroupMembership -Identity (Get-ADUser -Identity $user1samAccount)n`
+Get-ADPrincipalGroupMembership -Identity (Get-ADUser -Identity $user1samAccount) `
     | Get-ADGroup -Properties Description `
     | Select-Object Name, Description
